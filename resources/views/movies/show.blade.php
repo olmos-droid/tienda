@@ -21,9 +21,11 @@
                                 <a>Update at: {{ $movie->updated_at }} </a><br>
                                 <a>Created at: {{ $movie->created_at }} </a>
                         </small>
-        
                         </p>
                     </div>
+                <div>
+                 <a href="{{ URL::route('movies.edit',$movie) }}" class="btn btn-default"> Edit Item </a>
+                </div>
                 </div>
             </div>
         </div>

@@ -25,16 +25,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <span class="sr-only">(current)</span>
-                            <a class="nav-link" href="{{route('movie.index')}}">All items</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('movie.create')}}">Create Item</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Precio</a>
-                        </li>
+                        <li class="nav-item active"><span class="sr-only">(current)</span><a class="nav-link" href="{{route('movies.index')}}">All items</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('movies.create')}}">Create Item</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Precio</a></li>
                     </ul>
                 </div>
             </nav>

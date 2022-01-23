@@ -16,7 +16,7 @@ class MovieController extends Controller
     public function index()
     {
         // index o tambien lista
-        $movies = Movie::paginate(3);
+        $movies = Movie::orderBy('id', 'desc')->paginate(3);
 
         return view('home')->with('movies', $movies);
     }
@@ -29,7 +29,7 @@ class MovieController extends Controller
     public function create()
     {
         //
-        return view('/create');
+        return view('movies.create');
     }
 
     /**
@@ -42,17 +42,18 @@ class MovieController extends Controller
     {
         //
         $movie = new Movie();
-        
-        $movie->title=$request->title;
-        $movie->synopsis=$request->synopsis;
-        $movie->type=$request->type;
-        $movie->genere=$request->genere;
-        $movie->duration=$request->duration;
-        $movie->year=$request->year;
-        $movie->image=$request->image;
-        $movie->file=$request->file;
+
+        $movie->title = $request->title;
+        $movie->synopsis = $request->synopsis;
+        $movie->type = $request->type;
+        $movie->genere = $request->genere;
+        $movie->duration = $request->duration;
+        $movie->year = $request->year;
+        $movie->image = $request->image;
+        $movie->file = $request->file;
 
         $movie->save();
+        return redirect(route('movies.index'));
     }
 
     /**
@@ -61,11 +62,11 @@ class MovieController extends Controller
      * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Movie $movie)
     {
         //
-        $movie = Movie::find($id);
-        return view('/show')->with('movie', $movie);
+
+        return view('movies.show')->with('movie', $movie);
     }
 
     /**
@@ -76,7 +77,8 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        //
+        dump($movie);
+        return view('movies.edit')->with('movie', $movie);
     }
 
     /**

@@ -6,25 +6,25 @@
         @foreach ($movies as $movie)
         <div class="card m-2" style="max-width: auto;">
             <div class="row m-2">
-                <a href="{{ route('movie.show', $movie) }}" class="stretched-link">
+                <a href="{{ route('movies.show', $movie) }}" class="stretched-link">
                     <div class="">
                         <img src="{{ $movie->image }}" class="img-fluid rounded-start" alt="{{ $movie->image }}">
                     </div>
                 </a>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h3 class="card-title">Titulo: {{ $movie->title }}</h3>
-                            <p class="card-text">Descripcion: {{ $movie->synopsis }}</p>
-                            <p class="card-text">Generos: {{ $movie->genere }}</p>
-                            <small class="text-muted">
-                                <div class="card-text">
-                                    <a>Update at: {{ $movie->updated_at }} </a><br>
-                                    <a>Created at: {{ $movie->created_at }} </a>
-                            </small>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">Titulo: {{ $movie->title }}</h3>
+                        <p class="card-text">Descripcion: {{ $movie->synopsis }}</p>
+                        <p class="card-text">Generos: {{ $movie->genere }}</p>
+                        <small class="text-muted">
+                            <div class="card-text">
+                                <a>Update at: {{ $movie->updated_at }} </a><br>
+                                <a>Created at: {{ $movie->created_at }} </a>
+                        </small>
 
-                            </p>
-                        </div>
+                        </p>
                     </div>
+                </div>
             </div>
         </div>
     </div>
