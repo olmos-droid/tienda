@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\MovieController;
-use App\Models\Movie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MovieController::class,'index'])->name('home');
+Route::get('/', [MovieController::class,'index'])->name('movie.index');
+
+
+Route::get('/movie/create', [MovieController::class,'create'])->name('movie.create');
+Route::post('/movie', [MovieController::class,'store'])->name('movie.store');
+
+Route::get('/movie/{id}', [MovieController::class,'show'])->name('movie.show');

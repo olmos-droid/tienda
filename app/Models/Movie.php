@@ -21,6 +21,7 @@ class Movie extends Model
         'image',
         'genere',
         'year',
+        'file',
     ];
 
     /**

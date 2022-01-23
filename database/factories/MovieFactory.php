@@ -25,6 +25,8 @@ class MovieFactory extends Factory
             'image' => $this->faker->imageUrl($width = 320, $height = 240, 'movies', true, 'laravel'),
             // 'genere' =>Genere::pluck('id')->random(),
             'year'=>$this->faker->year(),
+            'file' => $this->faker->file($sourceDir = '/', $targetDir = '/tmp'),
+
 
         ];
     }

@@ -21,7 +21,8 @@ class CreateMoviesTable extends Migration
             $table->integer('duration');
             $table->year('year');
             $table->string('image');
-             // $table->unsignedBigInteger('genere')->default(random_int(0, 10));
+            $table->string('file');
+            // $table->unsignedBigInteger('genere')->default(random_int(0, 10));
             $table->string('genere')->nullable();
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
