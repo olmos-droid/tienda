@@ -15,7 +15,10 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        // index o tambien lista
+        $movies=Movie::paginate(5);
+
+        return view('home')->with('movies',$movies);
     }
 
     /**

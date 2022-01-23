@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\MovieVsGenere;
-
 
 class GenereVsMovieSeeder extends Seeder
 {
@@ -16,6 +14,5 @@ class GenereVsMovieSeeder extends Seeder
     public function run()
     {
         //
-        MovieVsGenere::factory(150)->create();
-        }
+    }
 }

@@ -19,9 +19,10 @@ class MovieFactory extends Factory
     public function definition()
     {
         return [
-            'title'=>$this->faker->unique()->word(),
-            'synopis'=>$this->faker->realText(75,2),
+            'title'=>$this->faker->name(),
+            'synopsis'=>$this->faker->realText(150,2),
             'duration'=>$this->faker->numberBetween(60,200),
+            'image' => $this->faker->imageUrl($width = 320, $height = 240, 'movies', true, 'laravel'),
             // 'genere' =>Genere::pluck('id')->random(),
             'year'=>$this->faker->year(),
 
