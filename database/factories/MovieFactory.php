@@ -16,16 +16,20 @@ class MovieFactory extends Factory
      *
      * @return array
      */
+    
     public function definition()
     {
+        $genere= Genere::all();
         return [
             'title'=>$this->faker->name(),
             'synopsis'=>$this->faker->realText(150,2),
             'duration'=>$this->faker->numberBetween(60,200),
-            'image' => $this->faker->imageUrl($width = 320, $height = 240, 'movies', true, 'laravel'),
-            // 'genere' =>Genere::pluck('id')->random(),
+            'type' => $this->faker->boolean(),
+            'genere'=>$this->faker->randomElement($genere),
             'year'=>$this->faker->year(),
+            'image' => $this->faker->imageUrl($width = 320, $height = 240,'Image',true),
             'file' => $this->faker->file($sourceDir = '/', $targetDir = '/tmp'),
+            
 
 
         ];

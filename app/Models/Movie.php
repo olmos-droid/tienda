@@ -17,10 +17,11 @@ class Movie extends Model
     protected $fillable = [
         'title',
         'synopsis',
-        'duration',
-        'image',
+        'type',
         'genere',
+        'duration',
         'year',
+        'image',
         'file',
     ];
 

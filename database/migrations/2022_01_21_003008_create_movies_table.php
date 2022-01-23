@@ -18,12 +18,14 @@ class CreateMoviesTable extends Migration
             $table->id();
             $table->string('title');//varchar(255)
             $table->text('synopsis');
+            $table->boolean('type'); // true es pelicula false es serie
+            $table->string('genere')->nullable();
             $table->integer('duration');
             $table->year('year');
-            $table->string('image');
-            $table->string('file');
             // $table->unsignedBigInteger('genere')->default(random_int(0, 10));
-            $table->string('genere')->nullable();
+            
+            $table->string('image')->nullable();
+            $table->string('file')->nullable();
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
 
