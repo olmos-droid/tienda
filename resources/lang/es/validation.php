@@ -146,6 +146,16 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title'=>'titulo',
+        'synopsis'=>'synopsis',
+        'type' =>'tipo',
+        'genere'=>'genero',
+        'duration'=>'duracion',
+        'year'=>'año',
+        'price'=>'precio',
+        'image'=>'imagen',
+        'file'=>'archivo',
+    ],
 
 ];

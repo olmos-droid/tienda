@@ -42,8 +42,17 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        //
-       
+        
+        $request->validate([
+            'title' => 'required',
+            'synopsis' => 'required',
+            'type' => 'required',
+            'genere' => 'required',
+            'duration' => 'required',
+            'year' => 'required',
+            'price' => 'required',
+        ]);
+// dd($request); 
         $movie = new Movie();
 
         $movie->title = $request->title;
@@ -58,7 +67,7 @@ class MovieController extends Controller
 
         $movie->save();
 
-        return redirect(route('movies.show',$movie));
+        return redirect(route('movies.show', $movie));
     }
 
     /**
@@ -96,7 +105,7 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-   
+
         $movie->title = $request->title;
         $movie->synopsis = $request->synopsis;
         $movie->type = $request->type;
