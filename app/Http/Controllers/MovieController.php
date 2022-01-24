@@ -43,15 +43,7 @@ class MovieController extends Controller
     public function store(StoreMovieRequest $request)
     {
 
-        $request->validate([
-            'title' => 'required',
-            'synopsis' => 'required',
-            'type' => 'required',
-            'genere' => 'required',
-            'duration' => 'required',
-            'year' => 'required',
-            'price' => 'required',
-        ]);
+       
         // dd($request); 
         $movie = new Movie();
 

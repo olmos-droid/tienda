@@ -25,7 +25,31 @@ class StoreMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required | max:10',
+            'synopsis' => 'required | min: 50',
+            'type' => 'required',
+            'genere' => 'required',
+            'duration' => 'required',
+            'year' => 'required',
+            'price' => 'required',
+        ];
+    }
+    /**
+     * Este metodo sirve para personalizar el nombre del campo para cada formulario
+     */
+    public function attributes()
+    {
+        return [
+            'title' => 'titol',
+        ];
+    }
+    /**
+     * Este metedo personaliza los mensajes de error
+     */
+    public function messages()
+    {
+        return [
+            'synopsis.required' => 'Tio necesitas mas de 50 letras',
         ];
     }
 }

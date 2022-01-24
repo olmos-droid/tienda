@@ -38,7 +38,7 @@
                         @error('type')
                         <br>
                         {{-- <div class="alert alert-danger" role="alert"> --}}
-                            <small class="alert alert-danger">{{$message}}</small>
+                            <small class="">{{$message}}</small>
                             {{--
                         </div> --}}
                         <br>
@@ -63,7 +63,7 @@
                     <div class="form-group mb-8 col">
                         <label for="duration">
                             <input class="form-control col-8" type="number" name="duration" id="duration"
-                                placeholder="time">
+                                placeholder="time" value="{{old('duration')}}">
                         </label>
                         @error('duration')
                         <br>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="form-group mb-8 col">
                         <label for="year">
-                            <input class="form-control col-8" type="number" name="year" id="year" placeholder="year">
+                            <input class="form-control col-8" type="number" name="year" id="year" placeholder="year" value="{{old('year')}}">
                         </label>
                         @error('year')
                         <br>
@@ -83,7 +83,7 @@
                     </div>
                     <div class="form-group mb-4 col">
                         <label for="price">
-                            <input class="form-control col-8" type="number" name="price" id="price" placeholder="price">
+                            <input class="form-control col-8" type="number" name="price" id="price" placeholder="price" value="{{old('price')}}">
                         </label>
                         @error('price')
                         <br>
