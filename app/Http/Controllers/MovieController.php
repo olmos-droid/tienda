@@ -43,6 +43,7 @@ class MovieController extends Controller
     public function store(StoreMovieRequest $request)
     {
         //
+       
         $movie = new Movie();
 
         $movie->title = $request->title;
@@ -51,12 +52,13 @@ class MovieController extends Controller
         $movie->genere = $request->genere;
         $movie->duration = $request->duration;
         $movie->year = $request->year;
+        $movie->price = $request->price;
         $movie->image = $request->image;
         $movie->file = $request->file;
 
         $movie->save();
 
-        return redirect(route('movies'));
+        return redirect(route('movies.show',$movie));
     }
 
     /**
@@ -94,7 +96,7 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-        dd($request);
+   
         $movie->title = $request->title;
         $movie->synopsis = $request->synopsis;
         $movie->type = $request->type;
