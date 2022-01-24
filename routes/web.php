@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,20 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//home localhost
-Route::get('/', [MovieController::class,'index'])->name('movies.index');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-//create item
-Route::get('/movie', [MovieController::class,'create'])->name('movies.create');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-//store/save item
-Route::post('/movie', [MovieController::class,'store'])->name('movies.store');
-
-//find by id
-Route::get('/movie/{movie}', [MovieController::class,'show'])->name('movies.show');
-
-//edit item
-Route::get('/movie/{movie}/edit', [MovieController::class,'edit'])->name('movies.edit');
-
-//update
-Route::put('/movie/{movie}', [MovieController::class,'update'])->name('movies.update');
+require __DIR__.'/auth.php';
