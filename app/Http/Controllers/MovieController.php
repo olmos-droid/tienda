@@ -109,7 +109,7 @@ class MovieController extends Controller
 
         $movie->save();
 
-        return redirect(route('show', $movie));
+        return redirect(route('movies.show', $movie));
     }
 
     /**
