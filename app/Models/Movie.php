@@ -21,6 +21,7 @@ class Movie extends Model
         'genere',
         'duration',
         'year',
+        'price',
         'image',
         'file',
     ];

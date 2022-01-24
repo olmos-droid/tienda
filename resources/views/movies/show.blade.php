@@ -15,8 +15,9 @@
                     <div class="card-body">
                         <h3 class="card-title ">Titulo: {{ $movie->title }}</h3>
                         <p class="card-text">Descripcion: {{ $movie->synopsis }}</p>
-                        <p class="card-text">Generos: 
-                            {{ $generes[$movie->genere]->name }}</p>
+                        <p class="card-text">Generos:
+                            {{ $generes[$movie->genere]->name }}
+                        </p>
                         <p class="card-text">Formato:
                             @if (($movie->type==0))
                             Movie
@@ -32,7 +33,9 @@
                         </p>
                     </div>
                     <div>
-                        <a href="{{ URL::route('movies.edit',$movie) }}" class="btn btn-default"> Edit Item </a>
+                        <a href="{{ URL::route('movies.edit',$movie) }}" class="btn btn-outline-info"> Editar</a>
+                        <a href="" class="btn btn-primary"> Comprar</a>
+                        <a href="" class="btn btn-primary"> Alquilar</a>
                     </div>
                 </div>
             </div>

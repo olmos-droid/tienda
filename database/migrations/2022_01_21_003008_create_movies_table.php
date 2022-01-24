@@ -22,6 +22,7 @@ class CreateMoviesTable extends Migration
             $table->string('genere')->nullable();
             $table->integer('duration');
             $table->year('year');
+            $table->integer('price');
             // $table->unsignedBigInteger('genere')->default(random_int(0, 10));
             
             $table->string('image')->nullable();

@@ -17,7 +17,7 @@ class MovieController extends Controller
     public function index()
     {
         // index o tambien lista
-        $movies = Movie::orderBy('id', 'desc')->paginate(3);
+        $movies = Movie::orderBy('id', 'desc')->paginate(12);
         $generes = Genere::all();
         return view('home')->with('movies', $movies)->with('generes', $generes);
     }

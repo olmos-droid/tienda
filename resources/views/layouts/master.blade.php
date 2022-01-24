@@ -27,7 +27,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item active"><span class="sr-only">(current)</span><a class="nav-link" href="{{route('movies.index')}}">All items</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('movies.create')}}">Create Item</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Precio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Carrito</a></li>
                     </ul>
                 </div>
             </nav>
