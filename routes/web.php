@@ -24,5 +24,5 @@ Route::post('/movie', [MovieController::class,'store'])->name('movies.store');
 Route::get('/movie/{movie}', [MovieController::class,'show'])->name('movies.show');
 //edit item
 Route::get('/movie/{movie}/edit', [MovieController::class,'edit'])->name('movies.edit');
-
-Route::post('/movie', [MovieController::class,'update'])->name('movies.update');
+//update
+Route::put('/movie/{movie}', [MovieController::class,'update'])->name('movies.update');

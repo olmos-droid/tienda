@@ -5,8 +5,9 @@
     <div class="container">
 
         <h1> Edit Item</h1>
-        <form action="{{route('movies.update')}}" method="POST">
+        <form action="{{route('movies.update',$movie)}}" method="POST">
             @csrf
+            @method('put')
             <div class="form-group">
                 <div class="">
                     <label for="synopsis">
@@ -33,12 +34,12 @@
                     <div class="col">
                         <label for="genere">
                             <select class="form-control" name="genere" id="genere" value="{{$movie->genere}}">
-                               
-                                <option value="gen1">genere 1</option>
-                                <option value="gen2">genere 2</option>
-                                <option value="gen3">genere 3</option>
-                                <option value="gen4">genere 4</option>
+                                <option selected disabled="">Genere</option>
+                                @foreach ($generes as $genere)
+                                <option value={{$genere->id}}>{{$genere->name}}</option>
+                                @endforeach
                             </select>
+                          
                         </label>
                     </div>
                     <div class="form-group mb-2 col">
@@ -49,7 +50,8 @@
                     </div>
                     <div class="form-group mb-2 col">
                         <label for="year">
-                            <input class="form-control col-4" type="number" name="year" id="year" placeholder="year" value="{{$movie->year}}">
+                            <input class="form-control col-4" type="number" name="year" id="year" placeholder="year"
+                                value="{{$movie->year}}">
                         </label>
                     </div>
                 </div>

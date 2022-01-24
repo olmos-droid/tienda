@@ -5,7 +5,7 @@
     <div class="container">
 
         <h1 class="text-center"> Show movie</h1>
-        
+
         <div class="card m-2" style="max-width: auto;">
             <div class="row m-2">
                 <div class="">
@@ -15,7 +15,15 @@
                     <div class="card-body">
                         <h3 class="card-title ">Titulo: {{ $movie->title }}</h3>
                         <p class="card-text">Descripcion: {{ $movie->synopsis }}</p>
-                        <p class="card-text">Generos: {{ $movie->genere }}</p>
+                        <p class="card-text">Generos: 
+                            {{ $generes[$movie->genere]->name }}</p>
+                        <p class="card-text">Formato:
+                            @if (($movie->type==0))
+                            Movie
+                            @else
+                            Serie
+                            @endif
+                        </p>
                         <small class="text-muted">
                             <div class="card-text">
                                 <a>Update at: {{ $movie->updated_at }} </a><br>
@@ -23,9 +31,9 @@
                         </small>
                         </p>
                     </div>
-                <div>
-                 <a href="{{ URL::route('movies.edit',$movie) }}" class="btn btn-default"> Edit Item </a>
-                </div>
+                    <div>
+                        <a href="{{ URL::route('movies.edit',$movie) }}" class="btn btn-default"> Edit Item </a>
+                    </div>
                 </div>
             </div>
         </div>

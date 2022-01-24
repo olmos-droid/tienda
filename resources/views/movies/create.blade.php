@@ -34,10 +34,10 @@
                         <label for="genere">
                             <select class="form-control" name="genere" id="genere">
                                 <option selected disabled="">Genere</option>
-                                <option value="gen1">genere 1</option>
-                                <option value="gen2">genere 2</option>
-                                <option value="gen3">genere 3</option>
-                                <option value="gen4">genere 4</option>
+                                @foreach ($generes as $genere)
+                                <option value="{{$genere->id}}">{{$genere->name}}</option>
+                                @endforeach
+                              
                             </select>
                         </label>
                     </div>

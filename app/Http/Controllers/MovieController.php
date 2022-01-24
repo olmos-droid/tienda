@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use App\Models\Movie;
+use App\Models\Genere;
 
 class MovieController extends Controller
 {
@@ -17,8 +18,8 @@ class MovieController extends Controller
     {
         // index o tambien lista
         $movies = Movie::orderBy('id', 'desc')->paginate(3);
-
-        return view('home')->with('movies', $movies);
+        $generes = Genere::all();
+        return view('home')->with('movies', $movies)->with('generes', $generes);
     }
 
     /**
@@ -29,7 +30,8 @@ class MovieController extends Controller
     public function create()
     {
         //
-        return view('movies.create');
+        $generes = Genere::all();
+        return view('movies.create')->with('generes', $generes);
     }
 
     /**
@@ -53,7 +55,8 @@ class MovieController extends Controller
         $movie->file = $request->file;
 
         $movie->save();
-        return redirect(route('movies.index'));
+
+        return redirect(route('movies.show', $movie));
     }
 
     /**
@@ -65,8 +68,8 @@ class MovieController extends Controller
     public function show(Movie $movie)
     {
         //
-
-        return view('movies.show')->with('movie', $movie);
+        $generes = Genere::all();
+        return view('movies.show')->with('movie', $movie)->with('generes', $generes);
     }
 
     /**
@@ -77,8 +80,9 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        dump($movie);
-        return view('movies.edit')->with('movie', $movie);
+        $generes = Genere::all();
+
+        return view('movies.edit')->with('movie', $movie)->with('generes', $generes);
     }
 
     /**
@@ -91,6 +95,18 @@ class MovieController extends Controller
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
         //
+        $movie->title = $request->title;
+        $movie->synopsis = $request->synopsis;
+        $movie->type = $request->type;
+        $movie->genere = $request->genere;
+        $movie->duration = $request->duration;
+        $movie->year = $request->year;
+        $movie->image = $request->image;
+        $movie->file = $request->file;
+
+        $movie->save();
+
+        return redirect(route('movies.show', $movie));
     }
 
     /**

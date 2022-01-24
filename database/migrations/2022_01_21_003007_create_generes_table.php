@@ -14,7 +14,7 @@ class CreateGeneresTable extends Migration
     public function up()
     {
         Schema::create('generes', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id')->primary();
             $table->string('name');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();

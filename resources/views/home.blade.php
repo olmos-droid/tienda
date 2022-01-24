@@ -15,14 +15,15 @@
                     <div class="card-body">
                         <h3 class="card-title">Titulo: {{ $movie->title }}</h3>
                         <p class="card-text">Descripcion: {{ $movie->synopsis }}</p>
-                        <p class="card-text">Generos: {{ $movie->genere }}</p>
+                        <p class="card-text">Generos: 
+                           {{$generes[$movie->genere]->name}}
+                        <small><p class="card-text">Formato:@if (($movie->type==0))Movie @else Serie @endif </p></small>
                         <small class="text-muted">
                             <div class="card-text">
                                 <a>Update at: {{ $movie->updated_at }} </a><br>
                                 <a>Created at: {{ $movie->created_at }} </a>
                         </small>
-
-                        </p>
+                    </p>
                     </div>
                 </div>
             </div>

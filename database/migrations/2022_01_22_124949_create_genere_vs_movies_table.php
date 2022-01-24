@@ -13,11 +13,11 @@ class CreateGenereVsMoviesTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('genere_vs_movies');
+        
         Schema::create('genere_vs_movies', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('genere_id');
+            $table->integer('genere_id');
             $table->unsignedBigInteger('movie_id');
 
             $table->foreign('genere_id')->references('id')->on('generes');
