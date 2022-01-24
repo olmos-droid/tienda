@@ -11,7 +11,7 @@
                 <div class="">
                     <label for="synopsis">
                         <input class="form-control" type="text" name="title" placeholder="Title"
-                            value="{{old('name')}}">
+                            value="{{old('title')}}">
                     </label>
                     @error('title')
                     <br><small>{{$message}}</small><br>
@@ -20,7 +20,7 @@
                 <div class="">
                     <label for="synopsis">
                         <textarea class="form-control" type="text" cols="30" rows="10" name="synopsis"
-                            placeholder="add text" value={{old('synopsis')}}></textarea>
+                            placeholder="add text">{{old('synopsis')}}</textarea>
                     </label>
                     @error('synopsis')
                     <br><small>{{$message}}</small><br>
@@ -31,8 +31,8 @@
                         <label for="type">
                             <select class="form-control col" name="type" id="type">
                                 <option selected disabled="">Type</option>
-                                <option value="0">Movie</option>
-                                <option value="1">Serie</option>
+                                <option value=0 {{ old('type')=='0' ? 'selected' : '' }}> Movies </option>
+                                <option value=1 {{ old('type')=='1' ? 'selected' : '' }}> Series </option>
                             </select>
                         </label>
                         @error('type')

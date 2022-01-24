@@ -42,7 +42,7 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        
+
         $request->validate([
             'title' => 'required',
             'synopsis' => 'required',
@@ -52,7 +52,7 @@ class MovieController extends Controller
             'year' => 'required',
             'price' => 'required',
         ]);
-// dd($request); 
+        // dd($request); 
         $movie = new Movie();
 
         $movie->title = $request->title;

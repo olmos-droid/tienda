@@ -11,12 +11,14 @@
             <div class="form-group">
                 <div class="">
                     <label for="synopsis">
-                        <input class="form-control" type="text" name="title" placeholder="Title" value="{{$movie->title}}">
+                        <input class="form-control" type="text" name="title" placeholder="Title"
+                            value="{{$movie->title}}">
                     </label>
                 </div>
                 <div class="">
                     <label for="synopsis">
-                        <textarea class="form-control" type="text" cols="30" rows="10" name="synopsis" placeholder="add text">{{$movie->synopsis}}</textarea>
+                        <textarea class="form-control" type="text" cols="30" rows="10" name="synopsis"
+                            placeholder="add text">{{$movie->synopsis}}</textarea>
                     </label>
                 </div>
                 <div class="row ">
@@ -42,17 +44,20 @@
                     </div>
                     <div class="form-group mb-2 col">
                         <label for="duration">
-                            <input class="form-control col-4" type="number" name="duration" id="duration" value="{{$movie->duration}}" placeholder="duration/min">
+                            <input class="form-control col-4" type="number" name="duration" id="duration"
+                                value="{{$movie->duration}}" placeholder="duration/min">
                         </label>
                     </div>
                     <div class="form-group mb-2 col">
                         <label for="year">
-                            <input class="form-control col-4" type="number" name="year" id="year" placeholder="year" value="{{$movie->year}}">
+                            <input class="form-control col-4" type="number" name="year" id="year" placeholder="year"
+                                value="{{$movie->year}}">
                         </label>
                     </div>
                     <div class="form-group mb-2 col">
                         <label for="price">
-                            <input class="form-control col-4" type="number" name="price" id="price" placeholder="price" value="{{$movie->price}}">
+                            <input class="form-control col-4" type="number" name="price" id="price" placeholder="price"
+                                value="{{$movie->price}}">
                         </label>
                     </div>
                 </div>
