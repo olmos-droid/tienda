@@ -14,28 +14,13 @@ class Movie extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'title',
-        'synopsis',
-        'type',
-        'genere',
-        'duration',
-        'year',
-        'price',
-        'image',
-        'file',
-    ];
-
+    protected $fillable = ['title','synopsis','type','genere','duration','year','price','image','file'];
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'created_at',
-        'updated_at',
-    ];
-
+    protected $hidden = ['created_at','updated_at',];
     /**
      * The attributes that should be cast.
      *
@@ -44,4 +29,5 @@ class Movie extends Model
     protected $casts = [
         //
     ];
+    // protected $guarded =[];
 }

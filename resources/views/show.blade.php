@@ -16,7 +16,7 @@
                         <h3 class="card-title ">Titulo: {{ $movie->title }}</h3>
                         <p class="card-text">Descripcion: {{ $movie->synopsis }}</p>
                         <p class="card-text">Generos:
-                            {{ $generes[$movie->genere]->name }}
+                            {{ $movie->genere}}
                         </p>
                         <p class="card-text">Formato:
                             @if (($movie->type==0))
