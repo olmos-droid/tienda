@@ -31,7 +31,7 @@ class MovieController extends Controller
     {
         //
         $generes = Genere::all();
-        return view('movies.create')->with('generes', $generes);
+        return view('create')->with('generes', $generes);
     }
 
     /**
@@ -56,7 +56,7 @@ class MovieController extends Controller
 
         $movie->save();
 
-        return redirect(route('movies.show', $movie));
+        return redirect(route('movies'));
     }
 
     /**
@@ -69,7 +69,7 @@ class MovieController extends Controller
     {
         //
         $generes = Genere::all();
-        return view('movies.show')->with('movie', $movie)->with('generes', $generes);
+        return view('show')->with('movie', $movie)->with('generes', $generes);
     }
 
     /**
@@ -82,7 +82,7 @@ class MovieController extends Controller
     {
         $generes = Genere::all();
 
-        return view('movies.edit')->with('movie', $movie)->with('generes', $generes);
+        return view('edit')->with('movie', $movie)->with('generes', $generes);
     }
 
     /**
@@ -94,19 +94,20 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-        //
+        dd($request);
         $movie->title = $request->title;
         $movie->synopsis = $request->synopsis;
         $movie->type = $request->type;
         $movie->genere = $request->genere;
         $movie->duration = $request->duration;
         $movie->year = $request->year;
+        $movie->price = $request->price;
         $movie->image = $request->image;
         $movie->file = $request->file;
 
         $movie->save();
 
-        return redirect(route('movies.show', $movie));
+        return redirect(route('show', $movie));
     }
 
     /**

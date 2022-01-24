@@ -10,13 +10,12 @@
             <div class="form-group">
                 <div class="">
                     <label for="synopsis">
-                        <input class="form-control" type="text" name="title" placeholder="Title">
+                        <input class="form-control" type="text" name="title" placeholder="Title" value="{{old('name')}}">
                     </label>
                 </div>
                 <div class="">
                     <label for="synopsis">
-                        <textarea class="form-control" type="text" cols="30" rows="10" name="synopsis"
-                            placeholder="add text"></textarea>
+                        <textarea class="form-control" type="text" cols="30" rows="10" name="synopsis" placeholder="add text" value={{old('synopsis')}}></textarea>
                     </label>
                 </div>
                 <div class="row ">
@@ -33,24 +32,29 @@
                     <div class="col">
                         <label for="genere">
                             <select class="form-control" name="genere" id="genere">
-                                <option selected disabled="">Genere</option>
+                                <option selected disabled>Genere</option>
                                 @foreach ($generes as $genere)
                                 <option value="{{$genere->id}}">{{$genere->name}}</option>
+                                
                                 @endforeach
-                              
+
                             </select>
                         </label>
                     </div>
-                    <div class="form-group mb-2 col">
+                    <div class="form-group mb-4 col">
                         <label for="duration">
-                            <input class="form-control col-4" type="number" name="duration" id="duration"
-                                placeholder="duration/min">
+                            <input class="form-control col-4" type="number" name="duration" id="duration" placeholder="time">
                         </label>
 
                     </div>
-                    <div class="form-group mb-2 col">
+                    <div class="form-group mb-4 col">
                         <label for="year">
                             <input class="form-control col-4" type="number" name="year" id="year" placeholder="year">
+                        </label>
+                    </div>
+                    <div class="form-group mb-4 col">
+                        <label for="price">
+                            <input class="form-control col-4" type="number" name="price" id="price" placeholder="price">
                         </label>
                     </div>
                 </div>

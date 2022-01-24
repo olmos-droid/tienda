@@ -19,7 +19,7 @@ class CreateMoviesTable extends Migration
             $table->string('title');//varchar(255)
             $table->text('synopsis');
             $table->boolean('type'); // true es pelicula false es serie
-            $table->string('genere')->nullable();
+            $table->string('genere');
             $table->integer('duration');
             $table->year('year');
             $table->integer('price');
