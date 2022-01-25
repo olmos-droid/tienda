@@ -68,8 +68,8 @@
                                 <a>Created at: {{ $movie->created_at }} </a>
                             </div>
                         </small>
-                        <a href="{{ route('movies.addToCart', $movie) }}" class="btn btn-outline-primary"> Comprar </a>
-                        <a href="{{ route('movies.show', $movie) }}" class="btn btn-outline-primary"> Alquilar </a>
+                        <a href="{{ route('movies.getAddToCart', $movie) }}" class="btn btn-outline-primary"> Comprar </a>
+                        {{-- <a href="{{ route('movies.show', $movie) }}" class="btn btn-outline-primary"> Alquilar </a> --}}
                     </div>
                 </div>
             </div>
