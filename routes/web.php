@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MovieController;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -22,3 +25,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/',[MovieController::class,'index'])->middleware(['auth'])->name('movies.index');
+Route::post('/',[MovieController::class,'index'])->middleware(['auth'])->name('movies.index');
+Route::get('/show/{movie}', [MovieController::class, 'show'])->middleware(['auth'])->name('movies.show');
+Route::get('/create', [MovieController::class, 'create'])->middleware(['auth'])->name('movies.create');
+Route::post('/create', [MovieController::class, 'create'])->middleware(['auth'])->name('movies.create');
+
+Route::get('/edit/{movie}', [MovieController::class, 'edit'])->middleware(['auth'])->name('movies.edit');
+Route::put('/edit/{movie}', [MovieController::class, 'update'])->middleware(['auth'])->name('movies.update');
+
+Route::get('/addToCart/{movie}',[CartController::class,'addToCart'])->Middleware(['auth'])->name('movies.addToCart');
+

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddToCartMovieRequest;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Genere;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -14,11 +17,32 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //metodo old
+        $request->flash();
         // index o tambien lista
-        $movies = Movie::orderBy('id', 'desc')->paginate(12);
+        $movies = Movie::all();
         $generes = Genere::all();
+        if ($request->bytype != '' || $request->bytype != 0) {
+            $movies = Movie::title("%$request->bytitle%")-> synopsis("%$request->bysynopsis%")
+                ->year("%$request->byyear%")
+                ->duration("%$request->byduration%")
+                ->type("$request->bytype")->get();
+            
+            dump($movies);
+        }
+
+        // if ($request->bytype != '' || $request->bytype != 0) {
+        //     $movies = Movie::title("%$request->bytitle%")
+            // ->synopsis("%$request->bysynopsis%")
+            // ->year("%$request->byyear%")
+            // ->duration("%$request->byduration%")
+            // ->type("$request->bytype")
+        //     ->get();
+        // } else {
+        // }
+        
         return view('home')->with('movies', $movies)->with('generes', $generes);
     }
 
@@ -55,7 +79,7 @@ class MovieController extends Controller
         // $movie->save();
 
         //assignacion massiva nos ahorramos el save y le pasamos todos los valores del request
-        dump($request->all());
+        // dump($request->all());
         $movie = Movie::create($request->all());
         return redirect(route('movies.show', $movie));
     }
