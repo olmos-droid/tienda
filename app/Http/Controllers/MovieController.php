@@ -106,7 +106,6 @@ class MovieController extends Controller
     public function edit(Movie $movie)
     {
         $generes = Genere::all();
-
         return view('edit')->with('movie', $movie)->with('generes', $generes);
     }
 
